@@ -1,11 +1,11 @@
 package com.pluralsight;
+import javax.swing.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import static com.pluralsight.MyriadLedgerApp.RESET;
 import static com.pluralsight.MyriadLedgerApp.YELLOW;
-
 public class ReportManager {
     static Scanner cScans = new Scanner(System.in);
 
@@ -22,7 +22,7 @@ public class ReportManager {
             System.out.println(myriadTransactions.get(i));
 
         }
-
+        System.out.println();
     }
 
     //* ---- Display Deposits ----*
@@ -36,7 +36,7 @@ public class ReportManager {
                 //? Print out each Transaction
                 System.out.println(myriadTransactions.get(i));
             }
-
+            System.out.println();
         }
     }
 
@@ -47,14 +47,14 @@ public class ReportManager {
 
         for (int i = myriadTransactions.size() - 1; i >= 0; i--) {
             if (myriadTransactions.get(i).getLedgerAmount() < 0) {
-
-                //* Display Amount
                 System.out.println(myriadTransactions.get(i));
+
+
+
             }
         }
-
+        System.out.println();
     }
-
     public static void searchVendor() {
         /// Ask the user for a vendor name
 
@@ -122,7 +122,7 @@ public class ReportManager {
 
 
         }
-
+        System.out.println();
     }
 
     //?---Display Transaction from current year
@@ -160,7 +160,9 @@ public class ReportManager {
 
             ///Check if transaction belongs to current year
             if (myriadTransactions.get(i).getLedgerDate().startsWith(previousYear)) {
+
                 System.out.println(myriadTransactions.get(i));
+
 
             }
         }
@@ -189,7 +191,7 @@ public class ReportManager {
         System.out.println("Start Date (yyyy-mm-dd): ");
         String startDate = cScans.nextLine();
 
-        System.out.println("End Date (yyyy-mm-dd): ");
+        System.out.println("End Date  (yyyy-mm-dd): ");
         String endDate = cScans.nextLine();
 
         System.out.println("Description: ");
@@ -244,7 +246,7 @@ public class ReportManager {
             }
         }
 
-
+        System.out.println();
     }
 
 }
