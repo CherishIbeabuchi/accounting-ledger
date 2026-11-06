@@ -1,14 +1,20 @@
 package com.pluralsight;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MyriadLedgerApp {
+    public static final String RESET = "\u001B[0m";
+    public static final String BLUE = "\u001B[34m";
+    public static final String CYAN = "\u001B[36m";
+    public static final String WHITE = "\u001B[37m";
+    public static final String YELLOW = "\u001B[33m";
+    public static final String PURPLE = "\u001B[35m";
     static Scanner cScans = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
+        startupAnimation();
         homeScreen();
     }
     //? My main Menu
@@ -17,16 +23,25 @@ public class MyriadLedgerApp {
         //? Allows the app to keep running until the user exists
         boolean running = true;
 
+        //TODO Displaying my home menu + Added some Colors
+       System.out.println(CYAN +  """
+       
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                > D) - Add Deposit
+       
+                > P) - Make Payment(Debit)
+        
+                > L) - Ledger
+       
+                > X) - Exit Session
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      
+        
+        
+        """ + RESET );
 
-        //TODO Displaying my home menu
-        System.out.println("""
-        |========= MYRIAD ================
-        D) Add Deposit
-        P) Make Payment
-        L) Ledger
-        X) Exit
-        ===================================
-        """);
+        System.out.println(WHITE + "Choose your option ?" + RESET);
+
 
         while (running) {
 
@@ -91,7 +106,6 @@ public class MyriadLedgerApp {
 
         /// Save Transaction
         FileManager.saveTransaction(transaction);
-        System.out.println("Payment Added!");
     }
     //* ----- LEDGER MENU -----
     public static void ledgerMenu() {
@@ -99,10 +113,21 @@ public class MyriadLedgerApp {
         boolean ledgerRunning = true;
 
         while (ledgerRunning) {
+            System.out.println(YELLOW + """
+     ╔══════════════════════════════════════╗
+     ║            WELLNESS LEDGER           ║
+     ╠══════════════════════════════════════╣
+     ║                                      ║
+     ║  A) All Entries                      ║
+     ║  D) Deposits                         ║
+     ║  P) Payments                         ║
+     ║  R) Reports                          ║
+     ║  H) Home                             ║
+     ║                                      ║
+     ╚══════════════════════════════════════╝
+""" + RESET);
 
-            System.out.println("""
-                    menu..""");
-            System.out.println("A)");
+            System.out.println(WHITE +"Choose your option->" +RESET);
             String choice = cScans.nextLine().toUpperCase();
 
             switch (choice) {
@@ -132,7 +157,21 @@ public class MyriadLedgerApp {
         boolean theReportsRun = true;
 
         while (theReportsRun) {
-            System.out.println("Reports...");
+            System.out.println(
+                    """
+                    ┌──────────────────────────────────┐
+                    │         WELLNESS REPORTS         │
+                    ├──────────────────────────────────┤
+                    │  1) Month To Date                │
+                    │  2) Previous Month               │
+                    │  3) Year To Date                 │
+                    │  4) Previous Year                │
+                    │  5) Search By Vendor             │
+                    │                                  │
+                    │  0) Back                         │
+                    │  H) Home                         │
+                    └──────────────────────────────────┘
+                    """);
 
             String userChoice = cScans.nextLine();
 
@@ -141,6 +180,7 @@ public class MyriadLedgerApp {
                     ReportManager.monthToDate();
                     break;
                 case "2":
+                    ReportManager.previousMonth();
                     break;
                 case "3":
                     ReportManager.yearToDate();
@@ -153,14 +193,131 @@ public class MyriadLedgerApp {
                     break;
                 case "6":
                     ReportManager.customSearch();
+                    break;
                 case "0":
                     theReportsRun = false;
                     break;
                 default:
-                    System.out.println("---");
+                    System.out.println(BLUE + """
+                            \n***********************************************
+                            
+                                             M Y R I A D
+                            
+                                             ANALYTICS HUB
+                            
+                                    Tracking Progress * Measuring Impact
+                            
+                            *************************************************
+                            """ + CYAN);
 
 
             }
         }
+    }public static void startupAnimation() throws InterruptedException {
+
+        System.out.print("Connecting");
+        Thread.sleep(400);
+
+        System.out.print(".");
+        Thread.sleep(400);
+
+        System.out.print(".");
+        Thread.sleep(400);
+
+        System.out.print(".");
+        Thread.sleep(800);
+
+        System.out.println();
+        System.out.println();
+
+        System.out.println(YELLOW +"""
+                    ✦ ✦ ✦
+
+███╗   ███╗██╗   ██╗██████╗  ██╗ █████╗   ██████╗
+████╗ ████║╚██╗ ██╔╝██╔══██╗ ██║ ██╔══██╗ ██╔══██╗
+██╔████╔██║ ╚████╔╝ ██████╔╝ ██║ ███████║ ██║  ██║
+██║╚██╔╝██║  ╚██╔╝  ██╔══██ ╗██ ║██╔══██║ ██║  ██║
+██║ ╚═╝ ██║   ██║   ██║  ██║ ██ ║██║  ██║ ██████╔╝
+╚═╝     ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═ ╚═╝  ╚═╝ ╚═════╝
+
+                    ✦ ✦ ✦
+
+            Every Story Matters
+
+         Accessible Support Nationwide
+
+""" + RESET);
+
+        Thread.sleep(3000);
+
+
+
+    }public static void typeWriter(String text, int delay)
+            throws InterruptedException {
+
+        for (char c : text.toCharArray()) {
+            System.out.print(c);
+            Thread.sleep(delay);
+        }
+
+        System.out.println();
+    }public static void showSplashScreen() throws InterruptedException {
+
+        System.out.print("Connecting");
+        Thread.sleep(400);
+
+        System.out.print(".");
+        Thread.sleep(400);
+
+        System.out.print(".");
+        Thread.sleep(400);
+
+        System.out.print(".");
+        Thread.sleep(800);
+
+        System.out.println("\n");
+
+        System.out.println(YELLOW + "                    ✦ ✦ ✦");
+        Thread.sleep(200);
+
+        System.out.println();
+        Thread.sleep(100);
+
+        System.out.println("███╗   ███╗██╗   ██╗██████╗ ██╗ █████╗ ██████╗");
+        Thread.sleep(100);
+
+        System.out.println("████╗ ████║╚██╗ ██╔╝██╔══██╗██║██╔══██╗██╔══██╗");
+        Thread.sleep(100);
+
+        System.out.println("██╔████╔██║ ╚████╔╝ ██████╔╝██║███████║██║  ██║");
+        Thread.sleep(100);
+
+        System.out.println("██║╚██╔╝██║  ╚██╔╝  ██╔══██╗██║██╔══██║██║  ██║");
+        Thread.sleep(100);
+
+        System.out.println("██║ ╚═╝ ██║   ██║   ██║  ██║██║██║  ██║██████╔╝");
+        Thread.sleep(100);
+
+        System.out.println("╚═╝     ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═════╝");
+        Thread.sleep(300);
+
+        System.out.println();
+        Thread.sleep(200);
+
+        System.out.println("                    ✦ ✦ ✦");
+        Thread.sleep(300);
+
+        System.out.println();
+        Thread.sleep(300);
+
+        typeWriter("            Every Story Matters", 40);
+
+        System.out.println();
+
+        typeWriter("         Accessible Support Nationwide", 40);
+
+        System.out.println(RESET);
+
+        Thread.sleep(2000);
     }
 }
