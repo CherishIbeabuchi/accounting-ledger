@@ -163,29 +163,28 @@ public class MyriadLedgerApp {
 
         while (theReportsRun) {
             System.out.println(BLUE + """
-╭──────────────────────────────────────────────╮
-│                                              │
-│              WELLNESS REPORTS                │
-│                                              │
-╰──────────────────────────────────────────────╯
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          🧠    WELLNESS REPORTS  🧠
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                              
+  1 -> Month To Date
 
-  1 • Month To Date
+  2 -> Previous Month
 
-  2 • Previous Month
+  3 ->  Year To Date
 
-  3 • Year To Date
+  4 -> Previous Year
 
-  4 • Previous Year
+  5 ->  Search By Vendor
 
-  5 • Search By Vendor
+  6 ->  Custom Search
 
-  6 • Custom Search
+  0 -> Back
 
-  0 • Back
+  H -> Home
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                
 
-  H • Home
-
-────────────────────────────────────────────────
 """ + RESET);
 
             System.out.println("Choose your option -> ");

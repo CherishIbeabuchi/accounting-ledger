@@ -170,7 +170,18 @@ public class ReportManager {
 
         System.out.println( YELLOW + """
      ━━━━━━━━━━━━━━━━━━━━━━━━━━
-           CUSTOM SEARCH
+       🌿  CUSTOM SEARCH 🌿
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━
+     -> Start Date
+     
+     -> End Date
+     
+     -> Description
+     
+     -> Vendor
+     
+     -> Amount
+ 
      ━━━━━━━━━━━━━━━━━━━━━━━━━━
      """ +RESET);
 
