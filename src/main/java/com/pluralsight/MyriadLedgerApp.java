@@ -29,23 +29,23 @@ public class MyriadLedgerApp {
 
             //TODO Displaying my home menu + Added some Colors
             System.out.println(CYAN + """
-                ████████████████████████████████████████████
-                      🌿
-                             THE MYRIAD HUB     🌿
-                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                      > 💰 D) - Add Deposit
-                
-                      > ❤️ P) - Make Payment(Debit)
-                
-                      > 📋 L) - Ledger
-                
-                      > 👋 X) - Exit Session
-                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                ████████████████████████████████████████████
-                
-                
-                
-                """ + RESET);
+                    ████████████████████████████████████████████
+                          🌿
+                                 THE MYRIAD HUB     🌿
+                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                          > 💰 D) - Add Deposit
+                    
+                          > ❤️ P) - Make Payment
+                    
+                          > 📋 L) - Ledger
+                    
+                          > 👋 X) - Exit Session
+                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    ████████████████████████████████████████████
+                    
+                    
+                    
+                    """ + RESET);
 
             System.out.println(WHITE + "Choose your option ?" + RESET);
 
@@ -64,15 +64,17 @@ public class MyriadLedgerApp {
                     break;
                 case "X":
                     running = false; //* Exit the Application
-                    System.out.println(CYAN +"""
+                    System.out.println(PURPLE + """
                             ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
                             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                                 THANK YOU FOR USING MYRIAD'S
-                            🫂
-                                      EVERY STORY COUNTS
-                                                            🫂
+                            🫂        THANK YOU FOR USING    🌱
+                            
+                                     🌍  MYRIAD'S HUB  🌍
+                            
+                                   ✨ EVERY STORY COUNTS ✨
+                                🌱                         🫂
                             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                            ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄""" +RESET);
+                            ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄""" + RESET);
                     break;
 
                 default:
@@ -87,17 +89,20 @@ public class MyriadLedgerApp {
         System.out.println("Description: ");
         String description = cScans.nextLine();
 
-        System.out.println("vendor: ");
+        System.out.println("Vendor: ");
         String vendor = cScans.nextLine();
 
         System.out.println("Amount: ");
         double amount = Double.parseDouble(cScans.nextLine());
-        Transaction theTransaction = new Transaction(LocalDate.now().toString(), LocalTime.now().toString(), description, vendor, amount);
+        Transaction theTransaction = new Transaction(LocalDate.now().toString(),
+                LocalTime.now().withNano(0).toString(),
+                description, vendor, amount);
 
         /// Save Transaction to the File
         FileManager.saveTransaction(theTransaction);
 
         System.out.println("Deposit Added Successfully!");
+        System.out.println("\n");
 
     }
 
@@ -115,7 +120,10 @@ public class MyriadLedgerApp {
         double amount = Double.parseDouble(cScans.nextLine());
         amount = -Math.abs(amount);
 
-        Transaction transaction = new Transaction(LocalDate.now().toString(), LocalTime.now().toString(), description, vendor, amount);
+        Transaction transaction = new Transaction(LocalDate.now().toString(),
+                LocalTime.now().withNano(0).toString(),
+                description, vendor, amount);
+
         System.out.println("Payment Added Successfully!");
         System.out.println("\n");
 
@@ -129,7 +137,7 @@ public class MyriadLedgerApp {
         boolean ledgerRunning = true;
 
         while (ledgerRunning) {
-            System.out.println(YELLOW+ """
+            System.out.println(YELLOW + """
                     ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
                      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                           🧠🤎 WELLNESS LEDGER 🤎🧠
@@ -143,7 +151,7 @@ public class MyriadLedgerApp {
                     
                       📊 R -) Reports
                     
-                      🏠 H  -) Home
+                      🏠 H -) Home
                     ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
                     
                     """ + RESET);
@@ -162,8 +170,6 @@ public class MyriadLedgerApp {
                     break;
                 case "P":
                     ReportManager.displayPayments();
-                    System.out.println("\n✅ End Of Report");
-                    cScans.nextLine();
                     break;
                 case "R":
                     reportsMenu();
@@ -183,31 +189,31 @@ public class MyriadLedgerApp {
 
         while (theReportsRun) {
             System.out.println(CYAN + """
- ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         📊    WELLNESS REPORTS    📊
- ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  📅 1 -> Month To Date
-  
-  ⏮️ 2 -> Previous Month
-  
-  📆 3 -> Year To Date
-  
-  🕰️ 4 -> Previous Year
-  
-  🔎 5 -> Search By Vendor
-  
-  🎯 6 -> Custom Search
-  
-   ↩️ 0 -> Back
-   
-  🏠 -> Home
- ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                
-
-""" + RESET);
+                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                             📊    WELLNESS REPORTS    📊
+                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                      📅 1 -> Month To Date
+                    
+                      ⏮️ 2 -> Previous Month
+                    
+                      📆 3 -> Year To Date
+                    
+                      🕰️ 4 -> Previous Year
+                    
+                      🔎 5 -> Search By Vendor
+                    
+                      🎯 6 -> Custom Search
+                    
+                       ↩️ 0 -> Back
+                    
+                      🏠 H -> Home
+                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    
+                    
+                    """ + RESET);
 
             System.out.println(WHITE + "Choose your option ?" + RESET);
 
@@ -245,6 +251,7 @@ public class MyriadLedgerApp {
         }
     }
 
+    // THE LOGO.....
     public static void startupAnimation() throws InterruptedException {
 
         System.out.print("Connecting");
@@ -261,9 +268,9 @@ public class MyriadLedgerApp {
 
         System.out.println();
         System.out.println();
-
         System.out.println(YELLOW + """
-                                    ✦ ✦ ✦
+                
+                              ═══ ✦ MYRIAD ✦ ═══
                 
                 ███╗   ███╗██╗   ██╗██████╗  ██╗ █████╗   ██████╗
                 ████╗ ████║╚██╗ ██╔╝██╔══██╗ ██║ ██╔══██╗ ██╔══██╗
@@ -273,15 +280,14 @@ public class MyriadLedgerApp {
                 ╚═╝     ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═ ╚═╝  ╚═╝ ╚═════╝
                 
                                     ✦ ✦ ✦
-                
-                            Every Story Matters
-                
-                         Accessible Support Nationwide
-                
-                """ + RESET);
+                          ✨ Every Story Matters  ✨
+                     🌍 Accessible Support Nationwide 🌍""");
+        System.out.println();
 
-        Thread.sleep(3000);
+
 
 
     }
+
+
 }

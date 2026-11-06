@@ -19,11 +19,26 @@ public class ReportManager {
         for (int i = myriadTransactions.size() - 1; i >= 0; i--) {
 
             //? Print transactions
-            System.out.println(myriadTransactions.get(i));
-            System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+            System.out.println("""
+        
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          📅 Date: %s
+          🕒 Time: %s
+          📝 Description: %s
+          🏢 Vendor: %s
+          💵 Amount: $%.2f
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        """.formatted(
+                    myriadTransactions.get(i).getLedgerDate(),
+                    myriadTransactions.get(i).getLedgerTime(),
+                    myriadTransactions.get(i).getLedgerDescription(),
+                    myriadTransactions.get(i).getVendor(),
+                    myriadTransactions.get(i).getLedgerAmount()
+            ));
+
 
         }
-        System.out.println("🌿 Together, these stories reflect our impact.");
+        System.out.println("🌿 Together these stories reflect our impact.");
         System.out.println("\n");
 
     }
@@ -37,8 +52,21 @@ public class ReportManager {
 
             if (myriadTransactions.get(i).getLedgerAmount() >= 0) {
                 //? Print out each Transaction
-                System.out.println(myriadTransactions.get(i));
-                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                System.out.println("""
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+             📅 Date: %s
+             🕒 Time: %s
+             📝 Description: %s
+             🏢 Vendor: %s
+             💵 Amount: $%.2f
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            """.formatted(
+                        myriadTransactions.get(i).getLedgerDate(),
+                        myriadTransactions.get(i).getLedgerTime(),
+                        myriadTransactions.get(i).getLedgerDescription(),
+                        myriadTransactions.get(i).getVendor(),
+                        myriadTransactions.get(i).getLedgerAmount()
+                ));
             }
         }System.out.println("💚 Every contribution helps someone heal.");
         System.out.println("\n");
@@ -51,8 +79,21 @@ public class ReportManager {
 
         for (int i = myriadTransactions.size() - 1; i >= 0; i--) {
             if (myriadTransactions.get(i).getLedgerAmount() < 0) {
-                System.out.println(myriadTransactions.get(i));
-                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                System.out.println("""
+             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+             📅 Date: %s
+             🕒 Time: %s
+             📝 Description: %s
+             🏢 Vendor: %s
+             💵 Amount: $%.2f
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+""".formatted(
+                        myriadTransactions.get(i).getLedgerDate(),
+                        myriadTransactions.get(i).getLedgerTime(),
+                        myriadTransactions.get(i).getLedgerDescription(),
+                        myriadTransactions.get(i).getVendor(),
+                        myriadTransactions.get(i).getLedgerAmount()
+                ));
 
 
 
@@ -76,10 +117,22 @@ public class ReportManager {
             ///Check if the vendor search matches the user input
             if (myriadTransactions.get(i).getVendor().equalsIgnoreCase(vendorSearch)) {
 
-                /// Display matching transaction
-                System.out.println(myriadTransactions.get(i));
-
-                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                /// Display matching transactions
+                System.out.println("""
+             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            📅 Date: %s
+            🕒 Time: %s
+            📝 Description: %s
+            🏢 Vendor: %s
+            💵 Amount: $%.2f
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            """.formatted(
+                        myriadTransactions.get(i).getLedgerDate(),
+                        myriadTransactions.get(i).getLedgerTime(),
+                        myriadTransactions.get(i).getLedgerDescription(),
+                        myriadTransactions.get(i).getVendor(),
+                        myriadTransactions.get(i).getLedgerAmount()
+                ));
 
 
             }
@@ -99,10 +152,21 @@ public class ReportManager {
 
             ///Check if the transaction belongs to the current month
             if (myriadTransactions.get(i).getLedgerDate().startsWith(currentMonth)) {
-
-                System.out.println(myriadTransactions.get(i));
-
-                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                System.out.println("""
+             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+             📅 Date: %s
+             🕒 Time: %s
+             📝 Description: %s
+             🏢 Vendor: %s
+             💵 Amount: $%.2f
+             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            """.formatted(
+                        myriadTransactions.get(i).getLedgerDate(),
+                        myriadTransactions.get(i).getLedgerTime(),
+                        myriadTransactions.get(i).getLedgerDescription(),
+                        myriadTransactions.get(i).getVendor(),
+                        myriadTransactions.get(i).getLedgerAmount()
+                ));
 
 
             }
@@ -125,11 +189,24 @@ public class ReportManager {
 
             ///Check if transaction belongs to the previous month
             if (myriadTransactions.get(i).getLedgerDate().startsWith(previousMonth)) {
-                System.out.println(myriadTransactions.get(i));
-                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                System.out.println("""
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                📅 Date: %s
+                🕒 Time: %s
+                📝 Description: %s
+                🏢 Vendor: %s
+                💵 Amount: $%.2f
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+               """.formatted(
+                        myriadTransactions.get(i).getLedgerDate(),
+                        myriadTransactions.get(i).getLedgerTime(),
+                        myriadTransactions.get(i).getLedgerDescription(),
+                        myriadTransactions.get(i).getVendor(),
+                        myriadTransactions.get(i).getLedgerAmount()
+                ));
 
             }
-        }  System.out.println("🍃 \nReflecting on progress and growth.");
+        }  System.out.println("\n 🍃 Reflecting on progress and growth.");
            System.out.println("\n");
 
     }
@@ -148,8 +225,21 @@ public class ReportManager {
 
             ///Check if transaction belongs to current year
             if (myriadTransactions.get(i).getLedgerDate().startsWith(currentYear)) {
-                System.out.println(myriadTransactions.get(i));
-                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                System.out.println("""
+             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              📅 Date: %s
+              🕒 Time: %s
+              📝 Description: %s
+              🏢 Vendor: %s
+              💵 Amount: $%.2f
+             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+             """.formatted(
+                        myriadTransactions.get(i).getLedgerDate(),
+                        myriadTransactions.get(i).getLedgerTime(),
+                        myriadTransactions.get(i).getLedgerDescription(),
+                        myriadTransactions.get(i).getVendor(),
+                        myriadTransactions.get(i).getLedgerAmount()
+                ));
 
             }
 
@@ -173,9 +263,21 @@ public class ReportManager {
 
             ///Check if transaction belongs to current year
             if (myriadTransactions.get(i).getLedgerDate().startsWith(previousYear)) {
-
-                System.out.println(myriadTransactions.get(i));
-                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                System.out.println("""
+               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+               📅 Date: %s
+               🕒 Time: %s
+               📝 Description: %s
+               🏢 Vendor: %s
+               💵 Amount: $%.2f
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              """.formatted(
+                        myriadTransactions.get(i).getLedgerDate(),
+                        myriadTransactions.get(i).getLedgerTime(),
+                        myriadTransactions.get(i).getLedgerDescription(),
+                        myriadTransactions.get(i).getVendor(),
+                        myriadTransactions.get(i).getLedgerAmount()
+                ));
 
 
             }
@@ -263,11 +365,32 @@ public class ReportManager {
 
                 }
             }
+            if (!description.isBlank()) {
+
+                if (!transaction.getLedgerDescription()
+                        .equalsIgnoreCase(description)) {
+
+                    isMatch = false;
+                }
+            }
             // if the transaction passed all checks
             // Show it to the user
             if(isMatch) {
-                System.out.println(transaction);
-                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                System.out.println("""
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                📅 Date: %s
+                🕒 Time: %s
+                📝 Description: %s
+                🏢 Vendor: %s
+                💵 Amount: $%.2f
+               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+               """.formatted(
+                        myriadTransactions.get(i).getLedgerDate(),
+                        myriadTransactions.get(i).getLedgerTime(),
+                        myriadTransactions.get(i).getLedgerDescription(),
+                        myriadTransactions.get(i).getVendor(),
+                        myriadTransactions.get(i).getLedgerAmount()
+                ));
             }
         }System.out.println("\n🔍 Behind every record is a story worth remembering.");
         System.out.println("\n");
