@@ -17,6 +17,7 @@ public class MyriadLedgerApp {
         startupAnimation();
         homeScreen();
     }
+
     //? My main Menu
     public static void homeScreen() {
 
@@ -24,21 +25,21 @@ public class MyriadLedgerApp {
         boolean running = true;
 
         //TODO Displaying my home menu + Added some Colors
-       System.out.println(CYAN +  """
-       
-       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                > D) - Add Deposit
-       
-                > P) - Make Payment(Debit)
-        
-                > L) - Ledger
-       
-                > X) - Exit Session
-       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      
-        
-        
-        """ + RESET );
+        System.out.println(CYAN + """
+                
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                         > D) - Add Deposit
+                
+                         > P) - Make Payment(Debit)
+                
+                         > L) - Ledger
+                
+                         > X) - Exit Session
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                
+                
+                
+                """ + RESET);
 
         System.out.println(WHITE + "Choose your option ?" + RESET);
 
@@ -69,6 +70,7 @@ public class MyriadLedgerApp {
 
         }
     }
+
     // Add Deposit
     public static void addDeposit() {
         System.out.println("Description: ");
@@ -87,6 +89,7 @@ public class MyriadLedgerApp {
         System.out.println("Deposit Added!");
 
     }
+
     //* ---- Make Payment ---*
     public static void makePayment() {
 
@@ -99,14 +102,15 @@ public class MyriadLedgerApp {
 
         System.out.println("Amount: ");
         double amount = Double.parseDouble(cScans.nextLine());
-        amount = -Math.abs (amount);
+        amount = -Math.abs(amount);
 
-        Transaction transaction = new Transaction(LocalDate.now().toString(), LocalTime.now().toString(), description , vendor, amount);
+        Transaction transaction = new Transaction(LocalDate.now().toString(), LocalTime.now().toString(), description, vendor, amount);
         System.out.println("Payment Added!");
 
         /// Save Transaction
         FileManager.saveTransaction(transaction);
     }
+
     //* ----- LEDGER MENU -----
     public static void ledgerMenu() {
 
@@ -114,20 +118,20 @@ public class MyriadLedgerApp {
 
         while (ledgerRunning) {
             System.out.println(YELLOW + """
-     ╔══════════════════════════════════════╗
-     ║            WELLNESS LEDGER           ║
-     ╠══════════════════════════════════════╣
-     ║                                      ║
-     ║  A) All Entries                      ║
-     ║  D) Deposits                         ║
-     ║  P) Payments                         ║
-     ║  R) Reports                          ║
-     ║  H) Home                             ║
-     ║                                      ║
-     ╚══════════════════════════════════════╝
-""" + RESET);
+                         ╔══════════════════════════════════════╗
+                         ║            WELLNESS LEDGER           ║
+                         ╠══════════════════════════════════════╣
+                         ║                                      ║
+                         ║  A) All Entries                      ║
+                         ║  D) Deposits                         ║
+                         ║  P) Payments                         ║
+                         ║  R) Reports                          ║
+                         ║  H) Home                             ║
+                         ║                                      ║
+                         ╚══════════════════════════════════════╝
+                    """ + RESET);
 
-            System.out.println(WHITE +"Choose your option->" +RESET);
+            System.out.println(WHITE + "Choose your option->" + RESET);
             String choice = cScans.nextLine().toUpperCase();
 
             switch (choice) {
@@ -153,25 +157,38 @@ public class MyriadLedgerApp {
             }
         }
     }
+
     public static void reportsMenu() {
         boolean theReportsRun = true;
 
         while (theReportsRun) {
-            System.out.println(
-                    """
-                    ┌──────────────────────────────────┐
-                    │         WELLNESS REPORTS         │
-                    ├──────────────────────────────────┤
-                    │  1) Month To Date                │
-                    │  2) Previous Month               │
-                    │  3) Year To Date                 │
-                    │  4) Previous Year                │
-                    │  5) Search By Vendor             │
-                    │                                  │
-                    │  0) Back                         │
-                    │  H) Home                         │
-                    └──────────────────────────────────┘
-                    """);
+            System.out.println(BLUE + """
+╭──────────────────────────────────────────────╮
+│                                              │
+│              WELLNESS REPORTS                │
+│                                              │
+╰──────────────────────────────────────────────╯
+
+  1 • Month To Date
+
+  2 • Previous Month
+
+  3 • Year To Date
+
+  4 • Previous Year
+
+  5 • Search By Vendor
+
+  6 • Custom Search
+
+  0 • Back
+
+  H • Home
+
+────────────────────────────────────────────────
+""" + RESET);
+
+            System.out.println("Choose your option -> ");
 
             String userChoice = cScans.nextLine();
 
@@ -213,7 +230,9 @@ public class MyriadLedgerApp {
 
             }
         }
-    }public static void startupAnimation() throws InterruptedException {
+    }
+
+    public static void startupAnimation() throws InterruptedException {
 
         System.out.print("Connecting");
         Thread.sleep(400);
@@ -230,94 +249,26 @@ public class MyriadLedgerApp {
         System.out.println();
         System.out.println();
 
-        System.out.println(YELLOW +"""
-                    ✦ ✦ ✦
-
-███╗   ███╗██╗   ██╗██████╗  ██╗ █████╗   ██████╗
-████╗ ████║╚██╗ ██╔╝██╔══██╗ ██║ ██╔══██╗ ██╔══██╗
-██╔████╔██║ ╚████╔╝ ██████╔╝ ██║ ███████║ ██║  ██║
-██║╚██╔╝██║  ╚██╔╝  ██╔══██ ╗██ ║██╔══██║ ██║  ██║
-██║ ╚═╝ ██║   ██║   ██║  ██║ ██ ║██║  ██║ ██████╔╝
-╚═╝     ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═ ╚═╝  ╚═╝ ╚═════╝
-
-                    ✦ ✦ ✦
-
-            Every Story Matters
-
-         Accessible Support Nationwide
-
-""" + RESET);
+        System.out.println(YELLOW + """
+                                    ✦ ✦ ✦
+                
+                ███╗   ███╗██╗   ██╗██████╗  ██╗ █████╗   ██████╗
+                ████╗ ████║╚██╗ ██╔╝██╔══██╗ ██║ ██╔══██╗ ██╔══██╗
+                ██╔████╔██║ ╚████╔╝ ██████╔╝ ██║ ███████║ ██║  ██║
+                ██║╚██╔╝██║  ╚██╔╝  ██╔══██ ╗██ ║██╔══██║ ██║  ██║
+                ██║ ╚═╝ ██║   ██║   ██║  ██║ ██ ║██║  ██║ ██████╔╝
+                ╚═╝     ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═ ╚═╝  ╚═╝ ╚═════╝
+                
+                                    ✦ ✦ ✦
+                
+                            Every Story Matters
+                
+                         Accessible Support Nationwide
+                
+                """ + RESET);
 
         Thread.sleep(3000);
 
 
-
-    }public static void typeWriter(String text, int delay)
-            throws InterruptedException {
-
-        for (char c : text.toCharArray()) {
-            System.out.print(c);
-            Thread.sleep(delay);
-        }
-
-        System.out.println();
-    }public static void showSplashScreen() throws InterruptedException {
-
-        System.out.print("Connecting");
-        Thread.sleep(400);
-
-        System.out.print(".");
-        Thread.sleep(400);
-
-        System.out.print(".");
-        Thread.sleep(400);
-
-        System.out.print(".");
-        Thread.sleep(800);
-
-        System.out.println("\n");
-
-        System.out.println(YELLOW + "                    ✦ ✦ ✦");
-        Thread.sleep(200);
-
-        System.out.println();
-        Thread.sleep(100);
-
-        System.out.println("███╗   ███╗██╗   ██╗██████╗ ██╗ █████╗ ██████╗");
-        Thread.sleep(100);
-
-        System.out.println("████╗ ████║╚██╗ ██╔╝██╔══██╗██║██╔══██╗██╔══██╗");
-        Thread.sleep(100);
-
-        System.out.println("██╔████╔██║ ╚████╔╝ ██████╔╝██║███████║██║  ██║");
-        Thread.sleep(100);
-
-        System.out.println("██║╚██╔╝██║  ╚██╔╝  ██╔══██╗██║██╔══██║██║  ██║");
-        Thread.sleep(100);
-
-        System.out.println("██║ ╚═╝ ██║   ██║   ██║  ██║██║██║  ██║██████╔╝");
-        Thread.sleep(100);
-
-        System.out.println("╚═╝     ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═════╝");
-        Thread.sleep(300);
-
-        System.out.println();
-        Thread.sleep(200);
-
-        System.out.println("                    ✦ ✦ ✦");
-        Thread.sleep(300);
-
-        System.out.println();
-        Thread.sleep(300);
-
-        typeWriter("            Every Story Matters", 40);
-
-        System.out.println();
-
-        typeWriter("         Accessible Support Nationwide", 40);
-
-        System.out.println(RESET);
-
-        Thread.sleep(2000);
     }
 }

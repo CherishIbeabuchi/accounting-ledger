@@ -7,6 +7,7 @@ public class Transaction {
     private String vendor;
     private double ledgerAmount;
 
+    // My constructor
     public Transaction( String ledgerDate, String ledgerTime,
                         String ledgerDescription,
                         String vendor,
@@ -18,6 +19,7 @@ public class Transaction {
         this.vendor = vendor;
     }
 
+    // Getters
     public double getLedgerAmount() {
         return ledgerAmount;
     }
@@ -38,6 +40,7 @@ public class Transaction {
         return vendor;
     }
 
+    // Used when saving to my csv file
     @Override
     public String toString() {
         return ledgerDate + "|" +
