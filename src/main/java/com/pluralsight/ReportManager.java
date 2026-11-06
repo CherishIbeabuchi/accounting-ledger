@@ -20,8 +20,11 @@ public class ReportManager {
 
             //? Print transactions
             System.out.println(myriadTransactions.get(i));
+            System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
         }
+        System.out.println("🌿 Together, these stories reflect our impact.");
+        System.out.println("\n");
 
     }
 
@@ -35,9 +38,10 @@ public class ReportManager {
             if (myriadTransactions.get(i).getLedgerAmount() >= 0) {
                 //? Print out each Transaction
                 System.out.println(myriadTransactions.get(i));
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
             }
-            System.out.println();
-        }
+        }System.out.println("💚 Every contribution helps someone heal.");
+        System.out.println("\n");
     }
 
     //TODO ----Display Payments-----
@@ -48,11 +52,13 @@ public class ReportManager {
         for (int i = myriadTransactions.size() - 1; i >= 0; i--) {
             if (myriadTransactions.get(i).getLedgerAmount() < 0) {
                 System.out.println(myriadTransactions.get(i));
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
 
 
             }
-        }
+        }System.out.println("\n🤝 Every partnership creates change.");
+         System.out.println("\n");
 
     }
     public static void searchVendor() {
@@ -73,33 +79,36 @@ public class ReportManager {
                 /// Display matching transaction
                 System.out.println(myriadTransactions.get(i));
 
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+
 
             }
-        }
+        }System.out.println("\n🤝 Every partnership creates change.");
+        System.out.println("\n");
     }
 
     public static void monthToDate() {
         /// Load all transactions
         ArrayList<Transaction> myriadTransactions = FileManager.getTransactions();
 
-        System.out.println("Transactions Loaded: " + myriadTransactions.size());
-
         ///Get current year and month
         String currentMonth = LocalDate.now().toString().substring(0, 7);
 
-        System.out.println("Current Month: " + currentMonth);
-
         ///Loop through transactions
         for (int i = myriadTransactions.size() - 1; i >= 0; i--) {
-            System.out.println(myriadTransactions.get(i).getLedgerDate());
 
             ///Check if the transaction belongs to the current month
             if (myriadTransactions.get(i).getLedgerDate().startsWith(currentMonth)) {
 
                 System.out.println(myriadTransactions.get(i));
 
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+
+
             }
-        }
+        } System.out.println("\n🌱 Every Story Matters.");
+        System.out.println("\n");
+
     }
 
     //TODO ---Display transactions from previous month---
@@ -117,9 +126,12 @@ public class ReportManager {
             ///Check if transaction belongs to the previous month
             if (myriadTransactions.get(i).getLedgerDate().startsWith(previousMonth)) {
                 System.out.println(myriadTransactions.get(i));
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
             }
-        }
+        }  System.out.println("🍃 \nReflecting on progress and growth.");
+           System.out.println("\n");
+
     }
 
     //?---Display Transaction from current year
@@ -137,11 +149,15 @@ public class ReportManager {
             ///Check if transaction belongs to current year
             if (myriadTransactions.get(i).getLedgerDate().startsWith(currentYear)) {
                 System.out.println(myriadTransactions.get(i));
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
             }
 
 
-        }
+        }System.out.println("\n🌳 Building healthier communities together.");
+        System.out.println("\n");
+
+
     }
 
     //?---Display Transaction from previous year
@@ -159,10 +175,13 @@ public class ReportManager {
             if (myriadTransactions.get(i).getLedgerDate().startsWith(previousYear)) {
 
                 System.out.println(myriadTransactions.get(i));
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
 
             }
-        }
+        } System.out.println("\n📖 Celebrating a year of support and impact.");
+        System.out.println("\n");
+
     }
 
     public static void customSearch() {
@@ -248,8 +267,11 @@ public class ReportManager {
             // Show it to the user
             if(isMatch) {
                 System.out.println(transaction);
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
             }
-        }
+        }System.out.println("\n🔍 Behind every record is a story worth remembering.");
+        System.out.println("\n");
+
 
     }
 

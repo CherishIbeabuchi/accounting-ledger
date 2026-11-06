@@ -117,6 +117,7 @@ public class MyriadLedgerApp {
 
         Transaction transaction = new Transaction(LocalDate.now().toString(), LocalTime.now().toString(), description, vendor, amount);
         System.out.println("Payment Added Successfully!");
+        System.out.println("\n");
 
         /// Save Transaction
         FileManager.saveTransaction(transaction);
@@ -134,15 +135,15 @@ public class MyriadLedgerApp {
                           🧠🤎 WELLNESS LEDGER 🤎🧠
                      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                     ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-                      A -) All Entries
+                      📚 A -) All Entries
                     
-                      D -) Deposits
+                      💰 D -) Deposits
                     
-                      P -) Payments
-                      
-                      R -) Reports
-                      
-                      H -) Home
+                      💸 P -) Payments
+                    
+                      📊 R -) Reports
+                    
+                      🏠 H  -) Home
                     ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
                     
                     """ + RESET);
@@ -182,18 +183,28 @@ public class MyriadLedgerApp {
 
         while (theReportsRun) {
             System.out.println(CYAN + """
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
          📊    WELLNESS REPORTS    📊
+ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  📅 1 -> Month To Date
+  
+  ⏮️ 2 -> Previous Month
+  
+  📆 3 -> Year To Date
+  
+  🕰️ 4 -> Previous Year
+  
+  🔎 5 -> Search By Vendor
+  
+  🎯 6 -> Custom Search
+  
+   ↩️ 0 -> Back
+   
+  🏠 -> Home
+ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  1 -> Month To Date
-  2 -> Previous Month
-  3 -> Year To Date
-  4 -> Previous Year
-  5 -> Search By Vendor
-  6 -> Custom Search
-  0 -> Back
-  H -> Home
- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                 
 
 """ + RESET);
