@@ -26,8 +26,9 @@ public class MyriadLedgerApp {
 
         //TODO Displaying my home menu + Added some Colors
         System.out.println(CYAN + """
-                
-                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                ████████████████████████████████████████████
+                            THE MYRIAD HUB
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                          > D) - Add Deposit
                 
                          > P) - Make Payment(Debit)
@@ -35,7 +36,8 @@ public class MyriadLedgerApp {
                          > L) - Ledger
                 
                          > X) - Exit Session
-                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                ████████████████████████████████████████████
                 
                 
                 
@@ -45,6 +47,27 @@ public class MyriadLedgerApp {
 
 
         while (running) {
+
+            //TODO Displaying my home menu + Added some Colors
+            System.out.println(CYAN + """
+                ████████████████████████████████████████████
+                            THE MYRIAD HUB
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                         > D) - Add Deposit
+                
+                         > P) - Make Payment(Debit)
+                
+                         > L) - Ledger
+                
+                         > X) - Exit Session
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                ████████████████████████████████████████████
+                
+                
+                
+                """ + RESET);
+
+            System.out.println(WHITE + "Choose your option ?" + RESET);
 
             //* Reading the users input and convert it to UpperCase :)
             String userChoice = cScans.nextLine().toUpperCase();
@@ -61,7 +84,15 @@ public class MyriadLedgerApp {
                     break;
                 case "X":
                     running = false; //* Exit the Application
-                    System.out.println("Thank you for...");
+                    System.out.println(YELLOW +"""
+                            ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+                            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                                 THANK YOU FOR USING MYRIAD'S
+                            🫂
+                                      EVERY STORY COUNTS
+                                                            🫂
+                            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                            ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄""" +RESET);
                     break;
 
                 default:
@@ -117,18 +148,17 @@ public class MyriadLedgerApp {
         boolean ledgerRunning = true;
 
         while (ledgerRunning) {
-            System.out.println(YELLOW + """
-                         ╔══════════════════════════════════════╗
-                         ║            WELLNESS LEDGER           ║
-                         ╠══════════════════════════════════════╣
-                         ║                                      ║
-                         ║  A) All Entries                      ║
-                         ║  D) Deposits                         ║
-                         ║  P) Payments                         ║
-                         ║  R) Reports                          ║
-                         ║  H) Home                             ║
-                         ║                                      ║
-                         ╚══════════════════════════════════════╝
+            System.out.println(YELLOW+ """
+                    ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+                           🧠🤎 WELLNESS LEDGER 🤎🧠
+                    ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+                      A -) All Entries
+                      D -) Deposits
+                      P -) Payments
+                      R -) Reports
+                      H -) Home   
+                    ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+                    
                     """ + RESET);
 
             System.out.println(WHITE + "Choose your option->" + RESET);
@@ -153,7 +183,7 @@ public class MyriadLedgerApp {
                     break;
 
                 default:
-                    System.out.println("...");
+                    System.out.println(BLUE + "❌ Invalid Selection" + RESET);
             }
         }
     }
@@ -162,32 +192,24 @@ public class MyriadLedgerApp {
         boolean theReportsRun = true;
 
         while (theReportsRun) {
-            System.out.println(BLUE + """
+            System.out.println(CYAN + """
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          🧠    WELLNESS REPORTS  🧠
+         📊    WELLNESS REPORTS    📊
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                              
   1 -> Month To Date
-
   2 -> Previous Month
-
-  3 ->  Year To Date
-
+  3 -> Year To Date
   4 -> Previous Year
-
-  5 ->  Search By Vendor
-
-  6 ->  Custom Search
-
+  5 -> Search By Vendor
+  6 -> Custom Search
   0 -> Back
-
   H -> Home
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                 
 
 """ + RESET);
 
-            System.out.println("Choose your option -> ");
+            System.out.println("Choose your option ?");
 
             String userChoice = cScans.nextLine();
 
@@ -215,15 +237,7 @@ public class MyriadLedgerApp {
                     break;
                 default:
                     System.out.println(BLUE + """
-                            \n***********************************************
-                            
-                                             M Y R I A D
-                            
-                                             ANALYTICS HUB
-                            
-                                    Tracking Progress * Measuring Impact
-                            
-                            *************************************************
+                            ❌ Invalid Selection
                             """ + CYAN);
 
 
