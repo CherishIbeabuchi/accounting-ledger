@@ -3,6 +3,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static com.pluralsight.MyriadLedgerApp.RESET;
+import static com.pluralsight.MyriadLedgerApp.YELLOW;
+
 public class ReportManager {
     static Scanner cScans = new Scanner(System.in);
 
@@ -27,9 +30,9 @@ public class ReportManager {
         ArrayList<Transaction> myriadTransactions = FileManager.getTransactions();
 
         /// Loop through the transaction
-        for (int i = myriadTransactions.size() - 1; i > 0; i--) {
+        for (int i = myriadTransactions.size() - 1; i >= 0; i--) {
 
-            if (myriadTransactions.get(i).getLedgerAmount() > 0) {
+            if (myriadTransactions.get(i).getLedgerAmount() >= 0) {
                 //? Print out each Transaction
                 System.out.println(myriadTransactions.get(i));
             }
@@ -79,11 +82,16 @@ public class ReportManager {
         /// Load all transactions
         ArrayList<Transaction> myriadTransactions = FileManager.getTransactions();
 
+        System.out.println("Transactions Loaded: " + myriadTransactions.size());
+
         ///Get current year and month
         String currentMonth = LocalDate.now().toString().substring(0, 7);
 
+        System.out.println("Current Month: " + currentMonth);
+
         ///Loop through transactions
         for (int i = myriadTransactions.size() - 1; i >= 0; i--) {
+            System.out.println(myriadTransactions.get(i).getLedgerDate());
 
             ///Check if the transaction belongs to the current month
             if (myriadTransactions.get(i).getLedgerDate().startsWith(currentMonth)) {
@@ -128,6 +136,7 @@ public class ReportManager {
         ///Loop through Transactions
         for (int i = myriadTransactions.size() - 1; i >= 0; i--) {
 
+
             ///Check if transaction belongs to current year
             if (myriadTransactions.get(i).getLedgerDate().startsWith(currentYear)) {
                 System.out.println(myriadTransactions.get(i));
@@ -158,22 +167,73 @@ public class ReportManager {
     }
 
     public static void customSearch() {
+
+        System.out.println( YELLOW + """
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━
+           CUSTOM SEARCH
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━
+     """ +RESET);
+
         ///Ask use for vendor name
-        String vendorSearch = cScans.nextLine();
-        /// Load all transactions
-        ArrayList<Transaction> myriadTransactions = FileManager.getTransactions();
-        ///Ask use for vendor name
-        String searchVendor = cScans.nextLine();
+        System.out.println("Start Date (yyyy-mm-dd): ");
+        String startDate = cScans.nextLine();
 
-        ///Loop through Transactions
-        for (int i = myriadTransactions.size() - 1; i >= 0; i--) {
+        System.out.println("End Date (yyyy-mm-dd): ");
+        String endDate = cScans.nextLine();
 
-            ///Check if transaction belongs to current year
-            if (myriadTransactions.get(i).getLedgerDate().startsWith(searchVendor)) {
+        System.out.println("Description: ");
+        String description = cScans.nextLine();
 
+        System.out.println("Vendor: ");
+        String vendor = cScans.nextLine();
 
+        System.out.println("Amount: ");
+        String amount = cScans.nextLine();
+
+        ArrayList<Transaction>myriadTransactions =
+                FileManager.getTransactions();
+
+        for (int i = myriadTransactions.size() -1; i >= 0; i--) {
+
+            Transaction transaction = myriadTransactions.get(i);
+            boolean isMatch = true;
+
+            if(!startDate.isBlank()) {
+
+                if(transaction.getLedgerDate().compareTo(startDate) < 0) {
+
+                    isMatch = false;
+                }
             }
+            if (!endDate.isBlank()) {
+                if(transaction.getLedgerDate().compareTo(endDate)> 0) {
 
+                    isMatch = false;
+            }
         }
+            if (!vendor.isBlank()) {
+                if(!transaction.getVendor().equalsIgnoreCase(vendor)) {
+
+                    isMatch =false;
+
+                }
+            }
+            if (!amount.isBlank()) {
+
+                double totalAmount = Double.parseDouble(amount);
+
+                if (transaction.getLedgerAmount() != totalAmount) {
+
+                    isMatch = false;
+
+                }
+            }
+            if(isMatch) {
+                System.out.println(transaction);
+            }
+        }
+
+
     }
+
 }
