@@ -17,6 +17,7 @@ public class FileManager {
             cWriter.write(transaction.toString());
             cWriter.newLine();
 
+
             cWriter.close();
 
         } catch (Exception e) {
@@ -47,6 +48,7 @@ public class FileManager {
         }
         cReader.close();
     }  catch (Exception e) {
+        e.printStackTrace();
         System.out.println("Error reading transaction file.");
 
 
