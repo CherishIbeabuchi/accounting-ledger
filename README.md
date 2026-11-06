@@ -114,6 +114,46 @@ Financial Analytics Dashboard
 PDF Report Exporting
 User Authentication
 Advanced Search Filters
+▶️ How to Run the Project
+Clone the repository:
+git clone https://github.com/CherishIbeabuchi/accounting-ledger.git
+
+Open the project in IntelliJ IDEA.
+
+Ensure Java 17 or later is installed.
+
+Run the application from:
+
+MyriadLedgerApp.java
+
+The application will automatically create and update the transactions.csv file used to store transaction records.
+
+Use the menu options to:
+
+Add Deposits
+Record Payments
+View the Ledger
+Run Reports
+Search Transactions
+Exit the application by selecting:
+
+X) Exit Session
+📸 Application Screens
+Home Screen
+Myriad Wellness Ledger home menu.
+
+Ledger Screen
+Displays transaction records and reporting options.
+
+Reports Screen
+Includes:
+
+Month To Date
+Previous Month
+Year To Date
+Previous Year
+Vendor Search
+Custom Search
 👨‍💻 Author
 Cherish Ibeabuchi
 
