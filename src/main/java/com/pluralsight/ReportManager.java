@@ -22,7 +22,7 @@ public class ReportManager {
             System.out.println(myriadTransactions.get(i));
 
         }
-        System.out.println();
+
     }
 
     //* ---- Display Deposits ----*
@@ -53,7 +53,7 @@ public class ReportManager {
 
             }
         }
-        System.out.println();
+
     }
     public static void searchVendor() {
         /// Ask the user for a vendor name
@@ -119,10 +119,7 @@ public class ReportManager {
                 System.out.println(myriadTransactions.get(i));
 
             }
-
-
         }
-        System.out.println();
     }
 
     //?---Display Transaction from current year
@@ -203,14 +200,18 @@ public class ReportManager {
         System.out.println("Amount: ");
         String amount = cScans.nextLine();
 
+        // Get all transaction from the Csv file and store them in an Arraylist
         ArrayList<Transaction>myriadTransactions =
                 FileManager.getTransactions();
 
+        // Loop through the transactions
         for (int i = myriadTransactions.size() -1; i >= 0; i--) {
 
+            // Get the current transaction being checked
             Transaction transaction = myriadTransactions.get(i);
             boolean isMatch = true;
 
+            // Check if the user entered a start date
             if(!startDate.isBlank()) {
 
                 if(transaction.getLedgerDate().compareTo(startDate) < 0) {
@@ -218,12 +219,13 @@ public class ReportManager {
                     isMatch = false;
                 }
             }
+            // Check if the user entered an end date
             if (!endDate.isBlank()) {
                 if(transaction.getLedgerDate().compareTo(endDate)> 0) {
 
                     isMatch = false;
             }
-        }
+        }   // check if the user entered a vendor name
             if (!vendor.isBlank()) {
                 if(!transaction.getVendor().equalsIgnoreCase(vendor)) {
 
@@ -232,21 +234,23 @@ public class ReportManager {
                 }
             }
             if (!amount.isBlank()) {
-
+                // Convert the user's amount into a decimal number
                 double totalAmount = Double.parseDouble(amount);
 
+                // Compare the entered amount with the transaction
                 if (transaction.getLedgerAmount() != totalAmount) {
 
                     isMatch = false;
 
                 }
             }
+            // if the transaction passed all checks
+            // Show it to the user
             if(isMatch) {
                 System.out.println(transaction);
             }
         }
 
-        System.out.println();
     }
 
 }

@@ -48,7 +48,6 @@ public class FileManager {
         }
         cReader.close();
     }  catch (Exception e) {
-        e.printStackTrace();
         System.out.println("Error reading transaction file.");
 
 

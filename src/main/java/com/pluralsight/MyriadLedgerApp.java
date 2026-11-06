@@ -24,42 +24,22 @@ public class MyriadLedgerApp {
         //? Allows the app to keep running until the user exists
         boolean running = true;
 
-        //TODO Displaying my home menu + Added some Colors
-        System.out.println(CYAN + """
-                ████████████████████████████████████████████
-                            THE MYRIAD HUB
-                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                         > D) - Add Deposit
-                
-                         > P) - Make Payment(Debit)
-                
-                         > L) - Ledger
-                
-                         > X) - Exit Session
-                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                ████████████████████████████████████████████
-                
-                
-                
-                """ + RESET);
-
-        System.out.println(WHITE + "Choose your option ?" + RESET);
-
 
         while (running) {
 
             //TODO Displaying my home menu + Added some Colors
             System.out.println(CYAN + """
                 ████████████████████████████████████████████
-                            THE MYRIAD HUB
+                      🌿
+                             THE MYRIAD HUB     🌿
                 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                         > D) - Add Deposit
+                      > 💰 D) - Add Deposit
                 
-                         > P) - Make Payment(Debit)
+                      > ❤️ P) - Make Payment(Debit)
                 
-                         > L) - Ledger
+                      > 📋 L) - Ledger
                 
-                         > X) - Exit Session
+                      > 👋 X) - Exit Session
                 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                 ████████████████████████████████████████████
                 
@@ -84,7 +64,7 @@ public class MyriadLedgerApp {
                     break;
                 case "X":
                     running = false; //* Exit the Application
-                    System.out.println(YELLOW +"""
+                    System.out.println(CYAN +"""
                             ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
                             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                                  THANK YOU FOR USING MYRIAD'S
@@ -117,7 +97,7 @@ public class MyriadLedgerApp {
         /// Save Transaction to the File
         FileManager.saveTransaction(theTransaction);
 
-        System.out.println("Deposit Added!");
+        System.out.println("Deposit Added Successfully!");
 
     }
 
@@ -136,7 +116,7 @@ public class MyriadLedgerApp {
         amount = -Math.abs(amount);
 
         Transaction transaction = new Transaction(LocalDate.now().toString(), LocalTime.now().toString(), description, vendor, amount);
-        System.out.println("Payment Added!");
+        System.out.println("Payment Added Successfully!");
 
         /// Save Transaction
         FileManager.saveTransaction(transaction);
@@ -150,30 +130,39 @@ public class MyriadLedgerApp {
         while (ledgerRunning) {
             System.out.println(YELLOW+ """
                     ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-                           🧠🤎 WELLNESS LEDGER 🤎🧠
+                     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                          🧠🤎 WELLNESS LEDGER 🤎🧠
+                     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                     ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
                       A -) All Entries
+                    
                       D -) Deposits
+                    
                       P -) Payments
+                      
                       R -) Reports
-                      H -) Home   
+                      
+                      H -) Home
                     ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
                     
                     """ + RESET);
 
-            System.out.println(WHITE + "Choose your option->" + RESET);
+            System.out.println(WHITE + "Choose your option ? " + RESET);
             String choice = cScans.nextLine().toUpperCase();
 
             switch (choice) {
 
                 case "A":
                     ReportManager.displayAll();
+                    System.out.println();
                     break;
                 case "D":
                     ReportManager.displayDeposits();
                     break;
                 case "P":
                     ReportManager.displayPayments();
+                    System.out.println("\n✅ End Of Report");
+                    cScans.nextLine();
                     break;
                 case "R":
                     reportsMenu();
@@ -209,7 +198,7 @@ public class MyriadLedgerApp {
 
 """ + RESET);
 
-            System.out.println("Choose your option ?");
+            System.out.println(WHITE + "Choose your option ?" + RESET);
 
             String userChoice = cScans.nextLine();
 
